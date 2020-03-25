@@ -14,8 +14,8 @@ namespace build_your_own_universe
         }
         public string UniverseName()
         {
-            string message = $"{_nameOfUniverse} is kind of a weird name but you are the boss!";
-            return message;
+            string alert = $"{_nameOfUniverse} is kind of a weird name but you are the boss!";
+            return alert;
         }
     }
 }
