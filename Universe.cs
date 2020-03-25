@@ -17,6 +17,22 @@ namespace build_your_own_universe
             string alert = $"{_nameOfUniverse} is kind of a weird name but you are the boss!";
             return alert;
         }
+        public Galaxy[] AddsGalaxies(int amt)
+        {
+            var galaxies1 = new List<Galaxy>();
+            for (int i = 0; i < amt; i++)
+            {
+
+                Random random = new Random();
+                int rand = random.Next();
+                string randomNumberString = rand.ToString();
+                galaxies1.Add(new Galaxy(randomNumberString));
+            }
+            return galaxies1.ToArray();
+        }
+
+
+
     }
 }
 
