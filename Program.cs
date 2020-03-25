@@ -7,12 +7,15 @@ namespace build_your_own_universe
         static void Main(string[] args)
         {
             string newGalaxy = "";
+            string props = "";
+
             int galaxies = 0;
             int solarSystems = 0;
             int planets = 0;
+            int add = 0;
             int organisms = 0;
+
             bool valid = true;
-            string props = "";
             bool adds = true;
 
             Console.WriteLine("Hello Everyone!");
@@ -50,7 +53,6 @@ namespace build_your_own_universe
                 Console.WriteLine("Would you like to add another Galaxy?");
                 Console.Write("Enter 0 for No or 1 for Yes:  ");
                 string input = Console.ReadLine();
-                int add = 0;
                 bool isParsed = int.TryParse(input, out add);
                 if (isParsed)
                 {
@@ -84,7 +86,7 @@ namespace build_your_own_universe
                 }
                 if (isSolarSystem && solarSystems < 20)
                 {
-                    Console.WriteLine("You should try to broden your herizons.");
+                    Console.WriteLine("Think bigger my guy.");
                     valid = false;
                 }
                 if (!isSolarSystem)
