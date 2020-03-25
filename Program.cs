@@ -26,21 +26,28 @@ namespace build_your_own_universe
             {
                 Console.WriteLine("Would you like to add another Universe?");
                 Console.Write("Enter 0 for No or 1 for Yes:  ");
-
-                int add = int.Parse(Console.ReadLine());
-
-                if (add == 0)
-                    valid = true;
-                if (add == 1)
+                string input = Console.ReadLine();
+                int add = 0;
+                bool isParsed = int.TryParse(input, out add);
+                if (isParsed)
                 {
-                    Console.Write("What is the name of your newest Universe?  ");
-                    newUniverse = Console.ReadLine();
-                    Console.WriteLine("Congratulation " + newUniverse + " exists.");
-                    valid = false;
-                    adds = false;
+                    if (add == 0)
+                        valid = true;
+                    if (add == 1)
+                    {
+                        Console.Write("What is the name of your newest Universe?  ");
+                        newUniverse = Console.ReadLine();
+                        Console.WriteLine("Congratulation " + newUniverse + " exists.");
+                        valid = false;
+                        adds = false;
+                    }
+                    if (!valid && adds)
+                        Console.WriteLine("Please enter a valid selection.");
                 }
-                if (!valid && adds)
+                else
+                {
                     Console.WriteLine("Please enter a valid selection.");
+                }
             }
             while (valid)
             {
