@@ -12,37 +12,36 @@ namespace build_your_own_universe
             int planets = 0;
             int organisms = 0;
             bool valid = false;
-            
+            string props = "";
+            bool adds = true;
 
             Console.WriteLine("Hello Everyone!");
             Console.Write($"If you could create a Universe what would you name it?  ");
-
             string nameOfUniverse = Console.ReadLine();
-
             Universe universe = new Universe(nameOfUniverse);
-            string props = "";
             Galaxy galaxy = new Galaxy(props);
             Console.WriteLine(universe.UniverselName());
-            while (!valid)
+
+            while (!valid || adds == true)
             {
                 Console.WriteLine("Would you like to add another Universe?");
                 Console.Write("Enter 0 for No or 1 for Yes:  ");
-               
-                 int add = int.Parse(Console.ReadLine());
+
+                int add = int.Parse(Console.ReadLine());
 
                 if (add == 0)
-                {
                     valid = true;
-                }
-                if (add == 1) 
+                if (add == 1)
                 {
                     Console.Write("What is the name of your newest Universe?  ");
                     newUniverse = Console.ReadLine();
                     Console.WriteLine("Congratulation " + newUniverse + " exists.");
                     valid = false;
+                    adds = false;
                 }
+                if (!valid && adds)
+                    Console.WriteLine("Please enter a valid selection.");
             }
-            
             while (valid)
             {
                 Console.Write($"How many Galaxies would {nameOfUniverse} have?  ");
@@ -112,7 +111,6 @@ namespace build_your_own_universe
             while (!valid)
             {
                 Console.Write("How many organisms populate each Planet?  ");
-
                 bool ifOrganism = int.TryParse(Console.ReadLine(), out organisms);
                 if (ifOrganism && organisms >= 1000)
                 {
@@ -130,19 +128,24 @@ namespace build_your_own_universe
                     valid = false;
                 }
             }
-                while (valid)
-                {
-                    Console.WriteLine($"Congratulations on the creation of your new Univere {nameOfUniverse}.");
-                    valid = false;
-                }
+            while (valid)
+            {
+                Console.WriteLine($"Congratulations on the creation of your new Univere {nameOfUniverse}.");
+                valid = false;
+            }
             int numberOfGalaxies = galaxies;
             Galaxy[] galaxies1 = universe.AddsGalaxies(numberOfGalaxies);
 
 
 
+
             Console.WriteLine("Press any key to exit program.");
-                Console.ReadKey();
-            }
+
+            Console.ReadKey();
+
         }
+
     }
+
+}
 
