@@ -6,10 +6,14 @@ namespace build_your_own_universe
 {
     class Galaxy
     {
-        public static string SolarSystems(string mind)
+        private static string _props;
+        public Galaxy(string props)
         {
-            mind = "hello";
-            string properties = mind;
+            _props = props;
+        }
+        public string SolarSystemsProperties()
+        {
+            string properties = $"Cold, Wet, and Lonely";
         return properties;
         }
     }

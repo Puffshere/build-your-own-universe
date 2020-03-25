@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "Build Your Own Universe/1.0.0": {
+        "runtime": {
+          "Build Your Own Universe.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Build Your Own Universe/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -18,23 +18,24 @@ namespace build_your_own_universe
             string nameOfUniverse = Console.ReadLine();
 
             Universe universe = new Universe(nameOfUniverse);
-
+            string props = "";
+            Galaxy galaxy = new Galaxy(props);
             Console.WriteLine(universe.UniverseName());
             while (!valid)
             {
                 Console.Write($"How many Galaxies would {nameOfUniverse} have?  ");
-                //Galaxy galaxy = new Galaxy(mind);
-                //Console.WriteLine(galaxy.SolarSystems());
 
                 bool isGalaxies = int.TryParse(Console.ReadLine(), out galaxies);
                 if (isGalaxies && galaxies >= 10)
                 {
                     Console.WriteLine("That is a lot of Galaxies!");
+                    Console.WriteLine("I heard those galaxies were " + (galaxy.SolarSystemsProperties()) + ".");
                     valid = true;
                 }
                 if (isGalaxies && galaxies < 10)
                 {
                     Console.WriteLine("That is a pretty small Universe!");
+                    Console.WriteLine("I heard those galaxies were " + (galaxy.SolarSystemsProperties()) + ".");
                     valid = true;
                 }
                 if (!isGalaxies)
