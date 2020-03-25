@@ -23,6 +23,8 @@ namespace build_your_own_universe
             while (!valid)
             {
                 Console.Write($"How many Galaxies would {nameOfUniverse} have?  ");
+                //Galaxy galaxy = new Galaxy(mind);
+                //Console.WriteLine(galaxy.SolarSystems());
 
                 bool isGalaxies = int.TryParse(Console.ReadLine(), out galaxies);
                 if (isGalaxies && galaxies >= 10)
@@ -110,6 +112,8 @@ namespace build_your_own_universe
                     Console.WriteLine($"Congratulations on the creation of your new Univere {nameOfUniverse}.");
                     valid = true;
                 }
+           // universe.GetPropertiesNameOfClass(string hello);
+           // Console.WriteLine(universe.GetPropertiesNameOfClass());
 
                 Console.WriteLine("Press any key to exit program.");
                 Console.ReadKey();
