@@ -20,7 +20,7 @@ namespace build_your_own_universe
             Universe universe = new Universe(nameOfUniverse);
             string props = "";
             Galaxy galaxy = new Galaxy(props);
-            Console.WriteLine(universe.UniverseName());
+            Console.WriteLine(universe.UniverselName());
             while (!valid)
             {
                 Console.Write($"How many Galaxies would {nameOfUniverse} have?  ");
@@ -113,8 +113,7 @@ namespace build_your_own_universe
                     Console.WriteLine($"Congratulations on the creation of your new Univere {nameOfUniverse}.");
                     valid = true;
                 }
-           // universe.GetPropertiesNameOfClass(string hello);
-           // Console.WriteLine(universe.GetPropertiesNameOfClass());
+         
 
                 Console.WriteLine("Press any key to exit program.");
                 Console.ReadKey();
