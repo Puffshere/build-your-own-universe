@@ -25,55 +25,68 @@ namespace build_your_own_universe
             Galaxy galaxy = new Galaxy(props);
             Console.WriteLine(universe.UniverselName());
 
-            
-            while (valid)
-            {
-                Console.Write($"How many Galaxies would {nameOfUniverse} have?  ");
-                bool isGalaxies = int.TryParse(Console.ReadLine(), out galaxies);
-                if (isGalaxies && galaxies >= 10)
-                {
-                    Console.WriteLine("That is a lot of Galaxies!");
-                    Console.WriteLine("I heard those galaxies were " + (galaxy.SolarSystemsProperties()) + ".");
-                    valid = false;
-                }
-                if (isGalaxies && galaxies < 10)
-                {
-                    Console.WriteLine("That is a pretty small Universe!");
-                    Console.WriteLine("I heard those galaxies were " + (galaxy.SolarSystemsProperties()) + ".");
-                    valid = false;
-                }
-                if (!isGalaxies)
-                {
-                    Console.WriteLine("Enter a valid number of Galaxies please.");
-                    valid = true;
-                }
-            }
+
+            //while (valid)
+            //{
+            //    Console.Write($"How many Galaxies would {nameOfUniverse} have?  ");
+            //    bool isGalaxies = int.TryParse(Console.ReadLine(), out galaxies);
+            //    if (isGalaxies && galaxies >= 10)
+            //    {
+            //        Console.WriteLine("That is a lot of Galaxies!");
+            //        Console.WriteLine("I heard those galaxies were " + (galaxy.SolarSystemsProperties()) + ".");
+            //        valid = false;
+            //    }
+            //    if (isGalaxies && galaxies < 10)
+            //    {
+            //        Console.WriteLine("That is a pretty small Universe!");
+            //        Console.WriteLine("I heard those galaxies were " + (galaxy.SolarSystemsProperties()) + ".");
+            //        valid = false;
+            //    }
+            //    if (!isGalaxies)
+            //    {
+            //        Console.WriteLine("Enter a valid number of Galaxies please.");
+            //        valid = true;
+            //    }
+            //}
+            bool firstTime = false;
             while (!valid || adds == true)
             {
-                Console.WriteLine("Would you like to add another Galaxy?");
-                Console.Write("Enter 0 for No or 1 for Yes:  ");
-                string input = Console.ReadLine();
-                bool isParsed = int.TryParse(input, out add);
-                if (isParsed)
+                if (!firstTime)
                 {
-                    if (add == 0)
-                        valid = true;
-                        adds = false;
-                    if (add == 1)
-                    {
-                        Console.Write("What is the name of your newest Galaxy?  ");
-                        newGalaxy = Console.ReadLine();
-                        Console.WriteLine("Congratulation " + newGalaxy + " exists.");
-                        valid = false;
-                        adds = false;
-                    }
-                    if (!valid && adds)
-                        Console.WriteLine("Please enter a valid selection.");
+                    Console.WriteLine("Would you like to add a Galaxy into your newly formed Universe " + (nameOfUniverse) +
+                    "?");
+                    firstTime = true;
                 }
                 else
                 {
-                    Console.WriteLine("Please enter a valid selection.");
+                    Console.WriteLine("Would you like to add another Galaxy into your newly formed Universe " + (nameOfUniverse) +
+                        "?");
                 }
+                    Console.Write("Enter 0 for No or 1 for Yes:  ");
+                    string input = Console.ReadLine();
+                    bool isParsed = int.TryParse(input, out add);
+                    if (isParsed)
+                    {
+                        if (add == 0)
+                            valid = true;
+                        adds = false;
+                        if (add == 1)
+                        {
+                            Console.Write("What is the name of your newest Galaxy?  ");
+                            newGalaxy = Console.ReadLine();
+                            //add method to add new galaxy to array
+                            Console.WriteLine("Congratulation " + newGalaxy + " exists.");
+                            valid = false;
+                            adds = false;
+                        }
+                        if (!valid && adds)
+                            Console.WriteLine("Please enter a valid selection.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Please enter a valid selection.");
+                    }
+                
             }
             while (valid)
             {
@@ -135,15 +148,15 @@ namespace build_your_own_universe
                 {
                     Console.WriteLine("Please enter a valid amount of Organisms.");
                     valid = true;
-                }
-            }
+                } 
+            }   
             while (!valid)
             {
                 Console.WriteLine($"Congratulations on the creation of your new Univere {nameOfUniverse}.");
                 valid = true;  
             }
             int numberOfGalaxies = galaxies;
-            Galaxy[] galaxies1 = universe.AddsGalaxies(numberOfGalaxies);
+            //Galaxy[] galaxies1 = universe.AddsGalaxies(numberOfGalaxies);
 
 
             Console.WriteLine("Press any key to exit program.");

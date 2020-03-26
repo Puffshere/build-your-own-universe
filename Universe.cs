@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
+
 
 namespace build_your_own_universe
 {
@@ -17,18 +19,19 @@ namespace build_your_own_universe
             string alert = $"{_nameOfUniverse} is kind of a weird name but you are the boss!";
             return alert;
         }
-        public Galaxy[] AddsGalaxies(int amt)
+        private string[] AddsGalaxies(string name)
         {
-            var galaxies1 = new List<Galaxy>();
-            for (int i = 0; i < amt; i++)
-            {
+            DirectoryInfo X = new DirectoryInfo(name);
+            FileInfo[] listGalaxies = X.GetFiles();
+            string[] Collection = new string[listGalaxies.Length];
+            int i = 0;
 
-                Random random = new Random();
-                int rand = random.Next();
-                string randomNumberString = rand.ToString();
-                galaxies1.Add(new Galaxy(randomNumberString));
+            foreach (FileInfo FI in listGalaxies)
+            {
+                Collection[i++] = FI.Name;
             }
-            return galaxies1.ToArray();
+            
+            return Collection;
         }
 
 
