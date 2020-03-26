@@ -58,6 +58,7 @@ namespace build_your_own_universe
                 {
                     if (add == 0)
                         valid = true;
+                        adds = false;
                     if (add == 1)
                     {
                         Console.Write("What is the name of your newest Galaxy?  ");
@@ -126,7 +127,7 @@ namespace build_your_own_universe
                     valid = false;
                 }
                 if (ifOrganism && organisms < 1000)
-                {
+                {  
                     Console.WriteLine("There is not a lot of room for error if organisms start to die off.");
                     valid = false;
                 }
@@ -139,7 +140,7 @@ namespace build_your_own_universe
             while (!valid)
             {
                 Console.WriteLine($"Congratulations on the creation of your new Univere {nameOfUniverse}.");
-                valid = true;
+                valid = true;  
             }
             int numberOfGalaxies = galaxies;
             Galaxy[] galaxies1 = universe.AddsGalaxies(numberOfGalaxies);
