@@ -10,29 +10,20 @@ namespace build_your_own_universe
     {
         private static string _nameOfUniverse;
         
+        
         public Universe(string nameOfUniverse)
         {
             _nameOfUniverse = nameOfUniverse;
         }
-        public string UniverselName()
+
+       
+   
+            public string UniverselName()
         {
             string alert = $"{_nameOfUniverse} is kind of a weird name but you are the boss!";
             return alert;
         }
-        private string[] AddsGalaxies(string name)
-        {
-            DirectoryInfo X = new DirectoryInfo(name);
-            FileInfo[] listGalaxies = X.GetFiles();
-            string[] Collection = new string[listGalaxies.Length];
-            int i = 0;
-
-            foreach (FileInfo FI in listGalaxies)
-            {
-                Collection[i++] = FI.Name;
-            }
-            
-            return Collection;
-        }
+       
 
 
 
