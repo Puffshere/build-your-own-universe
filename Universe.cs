@@ -14,19 +14,15 @@ namespace build_your_own_universe
         public Universe(string nameOfUniverse)
         {
             _nameOfUniverse = nameOfUniverse;
+           
         }
-
-       
+        
    
             public string UniverselName()
-        {
+            {
             string alert = $"{_nameOfUniverse} is kind of a weird name but you are the boss!";
             return alert;
-        }
-       
-
-
-
+            }
     }
 }
 

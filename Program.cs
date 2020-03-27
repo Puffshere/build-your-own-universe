@@ -10,20 +10,15 @@ namespace build_your_own_universe
         {
             public static void AddsGalaxy(params string[] universe)
             {
-               
                 foreach (string galaxy in universe)
                 {
-                    
-                    
                     Console.WriteLine("Congratulations the Galaxy " + galaxy + " now exists!"); ;
                 }
             }
             static void Main(string[] args)
             {
-
-                
-
                 string y = "";
+                string X = new string(y);
                 string props = "";
 
                 int galaxies = 0;
@@ -36,11 +31,16 @@ namespace build_your_own_universe
                 bool adds = true;
 
                 Console.WriteLine("Hello Everyone!");
+                Console.WriteLine();
                 Console.Write($"If you could create a Universe what would you name it?  ");
                 string nameOfUniverse = Console.ReadLine();
+
+                
+                //System nameOfTown = new System(nameOfTown);
                 Universe universe = new Universe(nameOfUniverse);
-                Galaxy galaxy = new Galaxy(props);
+                Console.WriteLine();
                 Console.WriteLine(universe.UniverselName());
+                Console.WriteLine();
 
 
                 //while (valid)
@@ -65,6 +65,8 @@ namespace build_your_own_universe
                 //        valid = true;
                 //    }
                 //}
+
+
                 bool firstTime = false;
                 while (!valid || adds == true)
                 {
@@ -89,24 +91,26 @@ namespace build_your_own_universe
                         adds = false;
                         if (add == 1)
                         {
-
+                            Console.WriteLine();
                             Console.Write("What is the name of your newest Galaxy?  ");
                             y = Console.ReadLine();
+
+                             
+                            Galaxy galaxy = new Galaxy(props, y);
+
+                            X = galaxy.AddsGalaxy(y);
+
                             StringBuilder builder = new StringBuilder("Galaxy ");
                             builder.Append(y);
                             builder.Append(".  I like it.");
+                            Console.WriteLine();
                             Console.WriteLine(builder);
-
-
-                            //AddsGalaxy("Voltron", "Nebula");
-                            //AddsGalaxy(y);
-                            //string[] addsss = { "A", "B" };
-                            //string arrayStr = string.Concat(addsss);
-                            //Console.WriteLine(arrayStr);
-                            //add method to add new galaxy to array
-
+                            Console.WriteLine();
                             valid = false;
                             adds = false;
+                            Console.WriteLine();
+                            Console.WriteLine(X);
+                            Console.WriteLine();
                         }
                         if (!valid && adds)
                             Console.WriteLine("Please enter a valid selection.");
@@ -116,15 +120,12 @@ namespace build_your_own_universe
                         Console.WriteLine("Please enter a valid selection.");
                     }
                 }
-                    Console.WriteLine("Here are a list of your Galaxies.");
+                Console.WriteLine();
+                Console.WriteLine("Here is a list of the current Galaxies in the " + nameOfUniverse + " Universe.");
+                Console.WriteLine();
+
                 
-                    
                 //choose a galaxy to add solarsystems to
-
-
-                //string[] newGalaxy1 = { "" };
-                
-                
 
                 while (!valid || adds == true)
                 {
@@ -163,7 +164,6 @@ namespace build_your_own_universe
                     {
                         Console.WriteLine("Please enter a valid selection.");
                     }
-
                 }
 
                 while (valid)
@@ -234,7 +234,6 @@ namespace build_your_own_universe
                     valid = true;
                 }
                 int numberOfGalaxies = galaxies;
-                //Galaxy[] galaxies1 = universe.AddsGalaxies(numberOfGalaxies);
 
 
                 Console.WriteLine("Press any key to exit program.");
