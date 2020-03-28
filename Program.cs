@@ -24,6 +24,8 @@ namespace build_your_own_universe
                 string y = "";
                 string X = new string(y);
                 string props = "";
+               
+
                 
 
                 int galaxies = 0;
@@ -124,9 +126,8 @@ namespace build_your_own_universe
                             //y = Console.ReadLine();
 
                             Person person = new Person(y, p);
-                            Console.WriteLine(person.GetFullName());
-                            //Console.WriteLine(universe.addsuniverse());
-
+                            string m = person.GetFullName();
+                            Console.WriteLine(m);
 
 
                             List<string> addsSomething = new List<string>();
