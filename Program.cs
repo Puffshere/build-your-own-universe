@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Linq;
 using System.Text;
+using System.Collections.Generic;
+
 
 namespace build_your_own_universe
 {
@@ -15,11 +17,14 @@ namespace build_your_own_universe
                     Console.WriteLine("Congratulations the Galaxy " + galaxy + " now exists!"); ;
                 }
             }
+
+         
             static void Main(string[] args)
             {
                 string y = "";
                 string X = new string(y);
                 string props = "";
+                
 
                 int galaxies = 0;
                 int solarSystems = 0;
@@ -30,17 +35,26 @@ namespace build_your_own_universe
                 bool valid = true;
                 bool adds = true;
 
+                Console.WriteLine();
                 Console.WriteLine("Hello Everyone!");
                 Console.WriteLine();
                 Console.Write($"If you could create a Universe what would you name it?  ");
                 string nameOfUniverse = Console.ReadLine();
+                string newgalaxy = y;
 
                 
                 //System nameOfTown = new System(nameOfTown);
-                Universe universe = new Universe(nameOfUniverse);
+                Universe universe = new Universe(nameOfUniverse, newgalaxy);
+
+
+
+
+
                 Console.WriteLine();
                 Console.WriteLine(universe.UniverselName());
                 Console.WriteLine();
+
+
 
 
                 //while (valid)
@@ -65,8 +79,6 @@ namespace build_your_own_universe
                 //        valid = true;
                 //    }
                 //}
-
-
                 bool firstTime = false;
                 while (!valid || adds == true)
                 {
@@ -92,24 +104,61 @@ namespace build_your_own_universe
                         if (add == 1)
                         {
                             Console.WriteLine();
-                            Console.Write("What is the name of your newest Galaxy?  ");
-                            y = Console.ReadLine();
 
-                             
+                            
+                            bool before = false;
+                            string p = y;
+
+                            if (!before)
+                            {
+                                Console.Write("What is the name of your newest Galaxy?  ");
+                                y  = Console.ReadLine();
+                                before = true;
+                            }
+                            else
+                            {
+                                Console.Write("What is the name of your newest Galaxy?  ");
+                                p = Console.ReadLine() + "This is p";
+                            }
+                            //universe.addsuniverse();
+                            //y = Console.ReadLine();
+
+                            Person person = new Person(y, p);
+                            Console.WriteLine(person.GetFullName());
+                            //Console.WriteLine(universe.addsuniverse());
+
+
+
+                            List<string> addsSomething = new List<string>();
                             Galaxy galaxy = new Galaxy(props, y);
-
-                            X = galaxy.AddsGalaxy(y);
+                            //List<string> abc = AddsGalaxy();
+                            //foreach (string abcd in abc)
+                            //{
+                                //Console.WriteLine(abc);
+                            //}
+                            
+                            
 
                             StringBuilder builder = new StringBuilder("Galaxy ");
                             builder.Append(y);
                             builder.Append(".  I like it.");
                             Console.WriteLine();
                             Console.WriteLine(builder);
-                            Console.WriteLine();
                             valid = false;
                             adds = false;
                             Console.WriteLine();
-                            Console.WriteLine(X);
+
+                            Galaxy start = new Galaxy(props, y);
+
+                            //Console.WriteLine(start.AddsGalaxy());
+                            //addsSomething.Add(y);
+
+                            //String newgalaxy = string.Join(",", addsSomething);  
+
+                            
+                            //Console.WriteLine(newgalaxy);
+
+
                             Console.WriteLine();
                         }
                         if (!valid && adds)

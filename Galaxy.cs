@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+
 namespace build_your_own_universe
 {
     class Galaxy
@@ -20,11 +21,23 @@ namespace build_your_own_universe
         return properties;
         }
 
-        public string AddsGalaxy(string y)
+        public string AddsGalaxy()
         {
-            string X = _y + " " + y + " and I hope you have a wonderful day!";
-            return X;
+            string y = _y;
+           //string abc = " hello";
+            List<string> abc = new List<string>();
+            abc.Add("hello");
+            abc.Add("yes");
+            abc.Add(_y);
+            
+            foreach (string i in abc)
+            {
+                Console.WriteLine(i);
+            }
+            String combindedString = string.Join(",", abc);
+           
+            return combindedString;
+            
         }
-
     }
 }
