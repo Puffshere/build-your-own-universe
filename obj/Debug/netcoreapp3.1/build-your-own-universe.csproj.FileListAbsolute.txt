@@ -9,3 +9,5 @@ C:\Users\shawn\Projects\build-your-own-universe\obj\Debug\netcoreapp3.1\build-yo
 C:\Users\shawn\Projects\build-your-own-universe\obj\Debug\netcoreapp3.1\build-your-own-universe.AssemblyInfo.cs
 C:\Users\shawn\Projects\build-your-own-universe\obj\Debug\netcoreapp3.1\build-your-own-universe.dll
 C:\Users\shawn\Projects\build-your-own-universe\obj\Debug\netcoreapp3.1\build-your-own-universe.pdb
+C:\Users\shawn\Projects\build-your-own-universe\obj\Debug\netcoreapp3.1\build-your-own-universe.csproj.CoreCompileInputs.cache
+C:\Users\shawn\Projects\build-your-own-universe\obj\Debug\netcoreapp3.1\build-your-own-universe.genruntimeconfig.cache

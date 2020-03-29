@@ -1,10 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace build_your_own_universe
 {
     class Star
     {
+        private static string _starName;
+
+        public Star(string starName)
+        {
+            _starName = starName;
+        }
+
+        public string GetName()
+        {
+            return _starName;
+        }
     }
 }
