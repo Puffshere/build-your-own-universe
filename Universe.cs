@@ -19,13 +19,9 @@ namespace build_your_own_universe
             _newgalaxy = newgalaxy;
             _galaxyOne = galaxyOne;
             _k = k;
-
             Y = _galaxyOne;
             P = k;
-
         }
-
-
 
         public string Y { get; set; }
 
@@ -36,7 +32,6 @@ namespace build_your_own_universe
             String combindedString = Y + P;
             return combindedString;
         }
-
 
         public string UniverselName()
         {

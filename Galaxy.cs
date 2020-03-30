@@ -21,7 +21,6 @@ namespace build_your_own_universe
             return properties;
         }
 
-
         public string GetName()
         {
             return _y;
@@ -41,6 +40,7 @@ namespace build_your_own_universe
             }
             String combindedString = string.Join(",", abc);
             return combindedString;
+
 
 
             //SolarSystem[] MakeChildren(int amt)

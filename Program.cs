@@ -26,6 +26,10 @@ namespace build_your_own_universe
                 string props = "";
                 string k = "";
                 string lifeForms = "";
+                string addsLife = " ";
+                string planetName = " ";
+                string additionalForms = " ";
+                string j = " ";
 
                 int numberOfYSolarSystems = 0;
                 int numberOfPSolarSystems = 0;
@@ -49,8 +53,8 @@ namespace build_your_own_universe
                 Console.Write($"If you could create a Universe what would you name it?  ");
                 string nameOfUniverse = Console.ReadLine();
                 string newgalaxy = galaxyOne;
-                int x = 0;
-                int o = 0;
+                //int x = 0;
+                //int o = 0;
 
                 Universe universe = new Universe(nameOfUniverse, newgalaxy, galaxyOne, galaxyTwo);
 
@@ -128,8 +132,13 @@ namespace build_your_own_universe
                                 galaxyTwo = Console.ReadLine();
                                 k = " and " + galaxyTwo;
                             }
+
+
                             Universe addsGalaxy = new Universe(nameOfUniverse, newgalaxy, galaxyOne, k);
                             string m = addsGalaxy.AddsGalaxy();
+
+
+
                             List<string> addsSomething = new List<string>();
                             StringBuilder builder = new StringBuilder("Galaxy ");
                             builder.Append(galaxyOne);
@@ -247,6 +256,7 @@ namespace build_your_own_universe
                     bool isPlanets = int.TryParse(Console.ReadLine(), out planets);
                     if (isPlanets && planets >= 5)
                     {
+                        Console.WriteLine();
                         Console.WriteLine("With that many Planets if we kill one there should always be a back up.");
                         Console.WriteLine("But lets add a bit more.");
 
@@ -260,7 +270,6 @@ namespace build_your_own_universe
                     {
                         Console.WriteLine("Probably not to many of them are in the Goldylocks Zone.  Better take care of them.");
                         Console.WriteLine("But lets add a bit more.");
-                        Console.WriteLine();
                         valid = true;
                     }
                     if (!isPlanets)
@@ -307,11 +316,13 @@ namespace build_your_own_universe
                                 if (add == 1)
                                 {
                                     Console.Write("What kind of Life Forms would you like to add to the " + galaxyTwo + " Galaxy in addition to the " + lifeForms + ".  ");
-                                    string additionalForms = Console.ReadLine();
+                                    additionalForms = Console.ReadLine();
+                                    Console.WriteLine("Now the Galaxy is made up of:  ");
+                                    Planet addsLives = new Planet(planetName, lifeForms, additionalForms);
+                                    j = addsLives.AddsLifeFormsNames();
                                     Console.WriteLine();
                                     valid = false;
                                     addLifeForms = true;
-
                                 }
                             if (add == 2)
                             {
@@ -334,8 +345,6 @@ namespace build_your_own_universe
                         valid = true;
                     }
                 }
-
-
                 //What type of life forms should the Planets have                     " In Planet "
                 //Make a list of life forms
 
@@ -347,6 +356,8 @@ namespace build_your_own_universe
                     valid = true;
                 }
                 int numberOfGalaxies = galaxies;
+
+
 
 
                 Console.WriteLine("Press any key to exit program.");

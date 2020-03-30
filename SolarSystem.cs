@@ -26,18 +26,18 @@ namespace build_your_own_universe
             return star;
         }
 
-        public Planet[] MakePlanet(int amt)
-        {
-            var planets = new List<Planet>();
-            for (int i = 0; i < amt; i++)
-            {
-                Random random = new Random();
-                int rand = random.Next();
-                string randomNumberString = rand.ToString();
-                Planet planet = new Planet(randomNumberString);
-                planets.Add(planet);
-            }
-            return planets.ToArray();
-        }
+        //public Planet[] MakePlanet(int amt)
+        //{
+        //    var planets = new List<Planet>();
+        //    for (int i = 0; i < amt; i++)
+        //    {
+        //        Random random = new Random();
+        //        int rand = random.Next();
+        //        string randomNumberString = rand.ToString();
+        //        Planet planet = new Planet(randomNumberString);
+        //        planets.Add(planet);
+        //    }
+        //    return planets.ToArray();
+        //}
     }
 }
