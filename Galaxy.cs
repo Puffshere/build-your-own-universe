@@ -26,37 +26,19 @@ namespace build_your_own_universe
             return _y;
         }
 
-        public string AddsGalaxy()
-        {
-            string y = _y;
-            List<string> abc = new List<string>();
-            abc.Add("hello");
-            abc.Add("yes");
-            abc.Add(_y);
+        //SolarSystem[] MakeChildren(int amt)
+        //{
+        //    var solarSystems = new List<SolarSystem>();
+        //    for (int i = 0; i < amt; i++)
+        //    {
+        //        Random random = new Random();
+        //        int rand = random.Next();
+        //        string randomNumberString = rand.ToString();
 
-            foreach (string i in abc)
-            {
-                Console.WriteLine(i);
-            }
-            String combindedString = string.Join(",", abc);
-            return combindedString;
+        //        solarSystems.Add(new SolarSystem(randomNumberString));
+        //    }
 
-
-
-            //SolarSystem[] MakeChildren(int amt)
-            //{
-            //    var solarSystems = new List<SolarSystem>();
-            //    for (int i = 0; i < amt; i++)
-            //    {
-            //        Random random = new Random();
-            //        int rand = random.Next();
-            //        string randomNumberString = rand.ToString();
-
-            //        solarSystems.Add(new SolarSystem(randomNumberString));
-            //    }
-
-            //    return solarSystems.ToArray();
-            //}
-        }
+        //    return solarSystems.ToArray();
+        //}
     }
 }

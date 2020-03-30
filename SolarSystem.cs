@@ -6,15 +6,26 @@ namespace build_your_own_universe
     class SolarSystem
     {
         private static string _solarSystemName;
+        private static string _planetNames;
 
-        public SolarSystem(string name)
+        public SolarSystem(string name, string randomNumberString, string planetNames)
         {
             _solarSystemName = name;
+            _planetNames = planetNames;
         }
 
         public string GetName()
         {
             return _solarSystemName;
+        }
+        public string AddsPlanetNames()
+        {
+            List<string> list = new List<string>(new string[] { _planetNames });
+            for (int i = 0; i < list.Count; i++)
+            {
+                Console.Write($"{i} = {list[i]}  ");
+            }
+            return "";
         }
 
         public Star MakeStar()

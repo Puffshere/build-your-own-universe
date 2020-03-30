@@ -17,24 +17,12 @@ namespace build_your_own_universe
         }
         public string AddsLifeFormsNames()
         {
-            //string[] array = new string[] { _lifeForm };
-            //List<string> addsLife = new List<string>(new string[] { _lifeForm });
-            //addsLife.Add("Snakes and Bears");
-            //Console.WriteLine(addsLife);
-            //return " ";
-
-
             List<string> list = new List<string>(new string[] { _lifeForm, _additionalForms });
-            // Part A: loop with for and access count.
-            //list.Add(_additionalForms);
             for (int i = 0; i < list.Count; i++)
             {
-                // Part B: access element with index.
                 Console.Write($"{i} = {list[i]}  ");
             }
-
             return "";
-
         }
 
         public string GetName()
