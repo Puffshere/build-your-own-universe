@@ -14,7 +14,5 @@ namespace build_your_own_universe
             _firstName = firstName;
             _lastName = lastName;
         }
-
-
     }
 }
