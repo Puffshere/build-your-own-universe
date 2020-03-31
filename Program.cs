@@ -38,8 +38,6 @@ namespace build_your_own_universe
                 string newPlanetArray = " ";
                 string M = "";
 
-                kkkkkgit
-
                 int numberOfYSolarSystems = 0;
                 int numberOfPSolarSystems = 0;
                 int galaxies = 0;
