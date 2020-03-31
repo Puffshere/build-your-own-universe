@@ -7,25 +7,30 @@ namespace build_your_own_universe
     {
         private static string _solarSystemName;
         private static string _planetNames;
+        private static string _newPlanetName;
 
-        public SolarSystem(string name, string randomNumberString, string planetNames)
+        public SolarSystem(string name, string randomNumberString, string planetNames, string newPlanetName)
         {
             _solarSystemName = name;
             _planetNames = planetNames;
+            _newPlanetName = newPlanetName;
         }
 
         public string GetName()
         {
             return _solarSystemName;
         }
+
         public string AddsPlanetNames()
         {
-            List<string> list = new List<string>(new string[] { _planetNames });
-            for (int i = 0; i < list.Count; i++)
-            {
-                Console.Write($"{i} = {list[i]}  ");
-            }
-            return "";
+            List<string> list = new List<string>(new string[] { _planetNames, _newPlanetName });
+            //for (int i = 0; i < list.Count; i++)
+            //{
+            //    //Console.Write($"{i} = {list[i]}  ");
+            //}
+            string p = _planetNames + " " + _newPlanetName;
+            // Console.WriteLine(p);
+            return p;
         }
 
         public Star MakeStar()

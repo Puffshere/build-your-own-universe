@@ -33,6 +33,9 @@ namespace build_your_own_universe
                 string planetsName = " ";
                 string name = " ";
                 string randomNumberString = " ";
+                string newestPlanet = " ";
+                string newPlanetName = " ";
+                string newPlanetArray = " ";
 
                 int numberOfYSolarSystems = 0;
                 int numberOfPSolarSystems = 0;
@@ -49,6 +52,9 @@ namespace build_your_own_universe
                 string M = "";
                 bool sock = false;
                 bool addLifeForms = false;
+                bool ifOrganism = false;
+                bool again = true;
+                bool next = true;
 
                 Console.WriteLine();
                 Console.WriteLine("Hello Everyone!");
@@ -71,6 +77,7 @@ namespace build_your_own_universe
                 {
                     Console.Write($"How many Galaxies would {nameOfUniverse} have?  ");
                     bool isGalaxies = int.TryParse(Console.ReadLine(), out galaxies);
+                    Console.WriteLine();
                     if (isGalaxies && galaxies >= 10)
                     {
                         Console.WriteLine("That is a lot of Galaxies!");
@@ -245,6 +252,7 @@ namespace build_your_own_universe
                         Console.WriteLine("The " + galaxyTwo + " Galaxy now has " + numberOfPSolarSystems + " Solar Systems!");
                         Console.WriteLine();
                         valid = false;
+                        sock = false;
                     }
                     if (!isSolarSystem)
                     {
@@ -253,94 +261,118 @@ namespace build_your_own_universe
                         valid = true;
                     }
                 }
-                while (!valid)
+                bool yes = false;
+                Console.Write("How many Planets would be in each Solar System?  ");
+                bool isPlanets = int.TryParse(Console.ReadLine(), out planets);
+                if (isPlanets && planets >= 5)
                 {
-                    Console.Write("How many Planets would be in each Solar System?  ");
-                    bool isPlanets = int.TryParse(Console.ReadLine(), out planets);
-                    if (isPlanets && planets >= 5)
+                    Console.WriteLine();
+                    Console.WriteLine("With that many Planets if we kill one there should always be a back up.");
+                    while (!valid)
                     {
                         Console.WriteLine();
-                        Console.WriteLine("With that many Planets if we kill one there should always be a back up.");
-                        Console.Write("What is the name of a Planet that you would like to add?  ");
-                        planetName = Console.ReadLine();
-                        SolarSystem addPlanets = new SolarSystem(name, randomNumberString, planetName);
-                        planetName = addPlanets.AddsPlanetNames();
-                        Console.WriteLine(planetName);
+                        Console.WriteLine("Would you like to add another Planet to the Galaxy?");
+                        Console.Write("Enter 0 for No or 1 for Yes:  ");
+                        string input = Console.ReadLine();
+                        Console.WriteLine();
+                        bool isParsed = int.TryParse(input, out add);
+                        if (isParsed)
+                        {
+                            if (add == 0)
+                                valid = true;
+                            adds = false;
+                            if (add == 1)
+                            {
+                                Console.Write("What is the name of the Planet you would like to add to the Galaxy?  ");
+                                newestPlanet = Console.ReadLine();
+                                //add method to add new galaxy to array
+                                Console.WriteLine();
+                                Console.WriteLine("Congratulations " + newestPlanet + " exists.");
+                                valid = false;
+                                adds = false;
+                            }
+                            if (!valid && adds)
+                                Console.WriteLine("Please enter a valid selection.");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Please enter a valid selection.");
+                        }
 
+
+
+
+                        SolarSystem addPlanets = new SolarSystem(name, randomNumberString, newestPlanet, newPlanetName);
+                        if (add == 1)
+                        {
+                            planetName = addPlanets.AddsPlanetNames();
+                            Console.WriteLine(planetName);
+                        }
                         //adds planet names
 
                         //What kind of stars should the ___ Solar System have?       " In Star "
                         //MakeStar();
                         //MakePlanet();
 
-                        valid = true;
-                    }
-                    bool planetAdd = true;
-                    if (isPlanets && planets < 5)
-                    {
-                        Console.WriteLine();
-                        Console.WriteLine("Probably not to many of them are in the Goldylocks Zone.  Better take care of them.");
-                        while (planetAdd)
-                        {
-                            Console.WriteLine();
-                            Console.Write("What is the name of a Planet that you would like to add?  ");
-                            planetName = Console.ReadLine();
-                            SolarSystem addPlanets = new SolarSystem(name, randomNumberString, planetName);
-                            planetName = addPlanets.AddsPlanetNames();
-                            Console.WriteLine(planetName);
-                            Console.WriteLine();
-                            Console.WriteLine("Enter 1 to add another Planet or Enter 2 to continue on with program.");
-                            string input = Console.ReadLine();
-                            bool isAdd = int.TryParse(input, out add);
-                            if (isAdd)
-                            {
-                                if (add == 1)
-                                {
-                                    planetAdd = true;
-                                }
-                                if (add == 2)
-                                {
-                                    planetAdd = false;
-                                }
-                            }
-                        }
-                        valid = true;
-                    }
-                    //string input = Console.ReadLine();
-                    //bool isParsed = int.TryParse(input, out add);
-                    //if (isParsed)
-                    //{
-                    //    if (add == 0)
-                    //        valid = true;
-                    //    adds = false;
-                    //    if (add == 1)
-                    //    {
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    if (!isPlanets)
-                    {
-                        Console.WriteLine("Pleae enter a valid amount of Planets.");
-                        Console.WriteLine();
-                        valid = false;
                     }
                 }
+                bool planetAdd = true;
+                if (isPlanets && planets < 5)
+                {
+                    while (planetAdd)
+                    {
+                        Console.WriteLine("Probably not to many of them are in the Goldylocks Zone.  Better take care of them.");
+                        Console.WriteLine();
+                        Console.Write("What is the name of a Planet that you would like to add?  ");
+                        newPlanetArray = Console.ReadLine();
+                        SolarSystem addPlanets = new SolarSystem(name, randomNumberString, planetName, newPlanetName);
+                        string addMore = " ";
+                        int wally = 0;
+                        while (next)
+                        {
+                            Console.WriteLine();
+                            Console.Write("Enter 1 to add another Planet or Enter 2 to continue on with program.  ");
+                            addMore = Console.ReadLine();
+                            bool isMixed = int.TryParse(addMore, out wally);
+                            if (isMixed && wally == 1)
+                            {
+                                Console.WriteLine();
+                                Console.Write("What is the name of a Planet that you would like to add?  ");
+                                newPlanetName = Console.ReadLine();
+                                planetName = newPlanetArray;
+                                SolarSystem addPlanetsTwo = new SolarSystem(name, randomNumberString, planetName, newPlanetName);
+                                newPlanetArray = addPlanetsTwo.AddsPlanetNames();
+
+                                next = true;
+                            }
+                            if (isMixed && wally == 2)
+                            {
+                                planetAdd = false;
+                                next = false;
+                            }
+                        }
+                    }
+                    valid = true;
+                }
+                if (!isPlanets)
+                {
+                    Console.WriteLine("Pleae enter a valid amount of Planets.");
+                    Console.WriteLine();
+                    valid = false;
+                }
+                Console.WriteLine();
+                Console.WriteLine("Here is a list of your newly created Planets:  ");
+                Console.WriteLine();
+                Console.WriteLine(newPlanetArray);
 
                 while (valid)
                 {
+
                     Console.WriteLine();
                     Console.Write("How many organisms populate each Planet?  ");
-                    bool ifOrganism = int.TryParse(Console.ReadLine(), out organisms);
+                    ifOrganism = int.TryParse(Console.ReadLine(), out organisms);
+
+
                     if (ifOrganism && organisms >= 1000)
                     {
                         Console.WriteLine("That is a lot or critters running around.");
@@ -350,16 +382,42 @@ namespace build_your_own_universe
                         Console.WriteLine();
                         if (sock)
                         {
-                            Console.WriteLine("Would you like to add any more Life Forms to the Planets in the " + galaxyOne + " Galaxy?");
-                            Console.WriteLine("So far the " + galaxyOne + " Galaxy is just made up of " + lifeForms + ".");
-                            Console.WriteLine("[1] - Yes");
-                            Console.Write("[2] - No    ");
-                            string c = Console.ReadLine();
-                            bool isParsed = int.TryParse(c, out add);
-                            Console.WriteLine();
-                            sock = false;
+                            while (again)
+                            {
+                                Console.WriteLine("Would you like to add any more Life Forms to the Planets in the " + galaxyOne + " Galaxy?");
+                                Console.WriteLine("So far the " + galaxyOne + " Galaxy is just made up of " + lifeForms + ".");
+                                Console.WriteLine("[1] - Yes");
+                                Console.Write("[2] - No    ");
+                                string c = Console.ReadLine();
+                                bool isParsed = int.TryParse(c, out add);
+                                Console.WriteLine();
+
+
+                                while (!addLifeForms)
+                                    if (add == 1)
+                                    {
+                                        Console.Write("What kind of Life Forms would you like to add to the " + galaxyOne + " Galaxy in addition to the " + lifeForms + ".  ");
+                                        additionalForms = Console.ReadLine();
+                                        Console.WriteLine();
+                                        Console.WriteLine("Now the " + galaxyOne + " Galaxy is made up of:  ");
+                                        Planet addsLives = new Planet(planetName, lifeForms, additionalForms);
+                                        j = addsLives.AddsLifeFormsNames();
+                                        Console.WriteLine();
+                                        valid = false;
+                                        addLifeForms = true;
+                                        again = true;
+                                    }
+                                if (add == 2)
+                                {
+                                    addLifeForms = true;
+                                    again = false;
+                                }
+                            }
                         }
-                        if (!sock)
+                    }
+                    if (!sock && organisms >= 1000)
+                    {
+                        while (again)
                         {
                             Console.WriteLine("Would you like to add any more Life Forms to the Planets in the " + galaxyTwo + " Galaxy?");
                             Console.WriteLine("So far the " + galaxyTwo + " Galaxy is just made up of " + lifeForms + ".");
@@ -374,20 +432,24 @@ namespace build_your_own_universe
                                     Console.Write("What kind of Life Forms would you like to add to the " + galaxyTwo + " Galaxy in addition to the " + lifeForms + ".  ");
                                     additionalForms = Console.ReadLine();
                                     Console.WriteLine();
-                                    Console.WriteLine("Now the Galaxy is made up of:  ");
+                                    Console.WriteLine("Now the " + galaxyTwo + " Galaxy is made up of:  ");
                                     Planet addsLives = new Planet(planetName, lifeForms, additionalForms);
                                     j = addsLives.AddsLifeFormsNames();
                                     Console.WriteLine();
                                     valid = false;
                                     addLifeForms = true;
+                                    again = true;
                                 }
                             if (add == 2)
                             {
                                 addLifeForms = true;
+                                again = false;
                             }
                         }
-                        valid = false;
                     }
+                    valid = false;
+
+
                     if (ifOrganism && organisms < 1000)
                     {
                         Console.WriteLine("There is not a lot of room for error if organisms start to die off.");
@@ -406,6 +468,7 @@ namespace build_your_own_universe
                 //Make a list of life forms
 
                 //Add method to add life forms to the Planets                         " In Planet "
+
                 Console.WriteLine("");
                 while (!valid)
                 {
@@ -423,5 +486,4 @@ namespace build_your_own_universe
         }
     }
 }
-
 
