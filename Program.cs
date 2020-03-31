@@ -36,25 +36,29 @@ namespace build_your_own_universe
                 string newestPlanet = " ";
                 string newPlanetName = " ";
                 string newPlanetArray = " ";
+                string M = "";
+
+                kkkkkgit
 
                 int numberOfYSolarSystems = 0;
                 int numberOfPSolarSystems = 0;
-
-
                 int galaxies = 0;
                 int solarSystems = 0;
                 int planets = 0;
                 int add = 0;
                 int organisms = 0;
+                int r = 0;
 
                 bool valid = true;
                 bool adds = true;
-                string M = "";
                 bool sock = false;
                 bool addLifeForms = false;
                 bool ifOrganism = false;
                 bool again = true;
                 bool next = true;
+                bool loop = false;
+                bool before = false;
+                bool firstTime = false;
 
                 Console.WriteLine();
                 Console.WriteLine("Hello Everyone!");
@@ -62,17 +66,11 @@ namespace build_your_own_universe
                 Console.Write($"If you could create a Universe what would you name it?  ");
                 string nameOfUniverse = Console.ReadLine();
                 string newgalaxy = galaxyOne;
-                //int x = 0;
-                //int o = 0;
-
                 Universe universe = new Universe(nameOfUniverse, newgalaxy, galaxyOne, galaxyTwo);
-
                 Console.WriteLine();
                 Console.WriteLine(universe.UniverselName());
                 Console.WriteLine();
-
                 Galaxy galaxy = new Galaxy(props, galaxyOne);
-
                 while (valid)
                 {
                     Console.Write($"How many Galaxies would {nameOfUniverse} have?  ");
@@ -99,11 +97,6 @@ namespace build_your_own_universe
                         valid = true;
                     }
                 }
-                bool loop = false;
-                bool before = false;
-                bool firstTime = false;
-                int r = 0;
-
                 while (!valid || adds == true && loop)
                 {
                     if (!firstTime)
@@ -142,13 +135,8 @@ namespace build_your_own_universe
                                 galaxyTwo = Console.ReadLine();
                                 k = " and " + galaxyTwo;
                             }
-
-
                             Universe addsGalaxy = new Universe(nameOfUniverse, newgalaxy, galaxyOne, k);
                             string m = addsGalaxy.AddsGalaxy();
-
-
-
                             List<string> addsSomething = new List<string>();
                             StringBuilder builder = new StringBuilder("Galaxy ");
                             builder.Append(galaxyOne);
@@ -161,7 +149,6 @@ namespace build_your_own_universe
                             Galaxy start = new Galaxy(props, galaxyOne);
                             Console.Write("And then there was ");
                             Console.WriteLine(m + ".");
-                            //Console.WriteLine();
                             r++;
                             M = m;
                             if (r == 2)
@@ -183,9 +170,6 @@ namespace build_your_own_universe
                 Console.WriteLine();
                 Console.WriteLine(M + " and a whole hell of a lot more yet to be named.");
                 Console.WriteLine();
-
-                //choose a galaxy to add solarsystems to
-
                 while (!valid || adds == true)
                 {
                     if (!firstTime)
@@ -211,7 +195,6 @@ namespace build_your_own_universe
                         {
                             Console.Write("What is the name of your newest Galaxy?  ");
                             galaxyOne = Console.ReadLine();
-                            //add method to add new galaxy to array
                             Console.WriteLine("Congratulation " + galaxyOne + " exists.");
                             valid = false;
                             adds = false;
@@ -228,10 +211,8 @@ namespace build_your_own_universe
                 {
                     Console.Write("Which Galaxy would you like to add Solar Systems to:  ");
                     List<string> list = new List<string>(new string[] { galaxyOne, galaxyTwo });
-                    // Part A: loop with for and access count.
                     for (int i = 0; i < list.Count; i++)
                     {
-                        // Part B: access element with index.
                         Console.Write($"{i} = {list[i]}  ");
                     }
                     bool isSolarSystem = int.TryParse(Console.ReadLine(), out solarSystems);
@@ -298,17 +279,12 @@ namespace build_your_own_universe
                         {
                             Console.WriteLine("Please enter a valid selection.");
                         }
-
-
-
-
                         SolarSystem addPlanets = new SolarSystem(name, randomNumberString, newestPlanet, newPlanetName);
                         if (add == 1)
                         {
                             planetName = addPlanets.AddsPlanetNames();
                             Console.WriteLine(planetName);
                         }
-                        //adds planet names
 
                         //What kind of stars should the ___ Solar System have?       " In Star "
                         //MakeStar();
@@ -342,7 +318,6 @@ namespace build_your_own_universe
                                 planetName = newPlanetArray;
                                 SolarSystem addPlanetsTwo = new SolarSystem(name, randomNumberString, planetName, newPlanetName);
                                 newPlanetArray = addPlanetsTwo.AddsPlanetNames();
-
                                 next = true;
                             }
                             if (isMixed && wally == 2)
@@ -364,15 +339,11 @@ namespace build_your_own_universe
                 Console.WriteLine("Here is a list of your newly created Planets:  ");
                 Console.WriteLine();
                 Console.WriteLine(newPlanetArray);
-
                 while (valid)
                 {
-
                     Console.WriteLine();
                     Console.Write("How many organisms populate each Planet?  ");
                     ifOrganism = int.TryParse(Console.ReadLine(), out organisms);
-
-
                     if (ifOrganism && organisms >= 1000)
                     {
                         Console.WriteLine("That is a lot or critters running around.");
@@ -391,8 +362,6 @@ namespace build_your_own_universe
                                 string c = Console.ReadLine();
                                 bool isParsed = int.TryParse(c, out add);
                                 Console.WriteLine();
-
-
                                 while (!addLifeForms)
                                     if (add == 1)
                                     {
@@ -448,8 +417,6 @@ namespace build_your_own_universe
                         }
                     }
                     valid = false;
-
-
                     if (ifOrganism && organisms < 1000)
                     {
                         Console.WriteLine("There is not a lot of room for error if organisms start to die off.");
@@ -457,29 +424,19 @@ namespace build_your_own_universe
                         lifeForms = Console.ReadLine();
                         Console.WriteLine();
                     }
-
                     if (!ifOrganism)
                     {
                         Console.WriteLine("Please enter a valid amount of Organisms.");
                         valid = true;
                     }
                 }
-                //What type of life forms should the Planets have                     " In Planet "
-                //Make a list of life forms
-
-                //Add method to add life forms to the Planets                         " In Planet "
-
                 Console.WriteLine("");
                 while (!valid)
                 {
                     Console.WriteLine($"Congratulations on the creation of your new Univere {nameOfUniverse}.");
                     valid = true;
                 }
-                int numberOfGalaxies = galaxies;
-
-
-
-
+                Console.WriteLine();
                 Console.WriteLine("Press any key to exit program.");
                 Console.ReadKey();
             }
