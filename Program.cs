@@ -274,7 +274,7 @@ namespace build_your_own_universe
                         planetName = addPlanets.AddsPlanetNames();
                         Console.WriteLine(planetName);
                     }
-
+                    //and how do you know that you are wrong
                     //What kind of stars should the ___ Solar System have?       " In Star "
                     //MakeStar();
                     //MakePlanet();
