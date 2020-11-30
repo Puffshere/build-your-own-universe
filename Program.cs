@@ -105,7 +105,7 @@ namespace build_your_own_universe
                     if (add == 0)
                         valid = true;
                     adds = false;
-                    M = "A shit ton";
+                    M = galaxyOne;
                     if (add == 1)
                     {
                         Console.WriteLine();
