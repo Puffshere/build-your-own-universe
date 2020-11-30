@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using System.Text;
 using System.Collections.Generic;
 
@@ -8,7 +7,6 @@ namespace build_your_own_universe
 {
     class Program
     {
-
         static void Main(string[] args)
         {
             string galaxyOne = "";
@@ -17,11 +15,11 @@ namespace build_your_own_universe
             string props = "";
             string k = "";
             string lifeForms = "";
-            string addsLife = " ";
+            //string addsLife = " ";
             string planetName = " ";
             string additionalForms = " ";
             string j = " ";
-            string planetsName = " ";
+            //string planetsName = " ";
             string name = " ";
             string randomNumberString = " ";
             string newestPlanet = " ";
